@@ -1,0 +1,17 @@
+{% extends "news/header.html" %}
+
+{% block content %}
+
+{% for post in items %}
+  <h6>Добавлено: {{post.date}}</h6>
+  <h1><a href="{{ url('post_detail', args=[post.pk]) }}">{{ post.title }}</a></h1>
+  <p>{{ post.text }}</p>
+  <a href="{{ url('post_detail', args=[post.pk]) }}">Комментариев: {{ post.comments.all()|length }}</a>
+  <hr>
+
+{% endfor %}
+
+{% endblock %}
+
+
+

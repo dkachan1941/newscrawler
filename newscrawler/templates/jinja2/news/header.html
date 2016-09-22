@@ -1,0 +1,46 @@
+<!DOCTYPE <!DOCTYPE html>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<link href="{{ static("/bootstrap/css/bootstrap.css")}}" rel="stylesheet">
+<link href="{{ static("/news/css/news.css")}}" rel="stylesheet">
+<script src="{{ static("/bootstrap/js/bootstrap.js")}}"></script>
+
+<html lang="ru">
+<head>
+	<title>События армрестлинга</title>
+	<meta charset="utf-8" />
+</head>
+<body class="body" style="background-color:#f6f6f6">
+	<nav class="navbar navbar-default info">
+	  <div class="container-fluid">
+
+	  <div class="page-header">
+
+        {% if request.user.is_authenticated %}
+
+        <p class="top-menu">Привет, {{ request.user.username }}<small>(<a href="{{ url('accounts/login/') }}">Log out</a>)</small></p>
+        {% else %}
+        <a href="{{ url( 'accounts/login/') }}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+        {% endif %}
+        <h1><a href="{{ url( 'index') }}">События Армрестлинга</a></h1>
+    </div>
+
+
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Новости армрестлинга</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li class="active"><a href="/news/">Новости</a></li>
+	      <li><a href="/admin/" target="_parent">Секции</a></li>
+	      <li><a href="/admin/" target="_parent">Оборудование</a></li>
+			<!--       <li><a href="#">Page 2</a></li>
+	      <li><a href="#">Page 3</a></li> -->
+	    </ul>
+	  </div>
+	</nav>
+	<div class="container">
+		{% block content %}
+		{% endblock %}
+	</div>
+</body>
+</html>
