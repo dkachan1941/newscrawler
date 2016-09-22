@@ -14,25 +14,14 @@
 	<nav class="navbar navbar-default info">
 	  <div class="container-fluid">
 
-	  <div class="page-header">
-
-        {% if request.user.is_authenticated %}
-
-        <p class="top-menu">Привет, {{ request.user.username }}<small>(<a href="{{ url('accounts/login/') }}">Log out</a>)</small></p>
-        {% else %}
-        <a href="{{ url( 'accounts/login/') }}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-        {% endif %}
-        <h1><a href="{{ url( 'index') }}">События Армрестлинга</a></h1>
-    </div>
-
 
 	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">Новости армрестлинга</a>
+	      <a class="navbar-brand" href="#">Новости</a>
 	    </div>
 	    <ul class="nav navbar-nav">
 	      <li class="active"><a href="/news/">Новости</a></li>
-	      <li><a href="/admin/" target="_parent">Секции</a></li>
-	      <li><a href="/admin/" target="_parent">Оборудование</a></li>
+	      <li><a href="/admin/" target="_parent">Что-то еще</a></li>
+	      <li><a href="/admin/" target="_parent">И еще</a></li>
 			<!--       <li><a href="#">Page 2</a></li>
 	      <li><a href="#">Page 3</a></li> -->
 	    </ul>
