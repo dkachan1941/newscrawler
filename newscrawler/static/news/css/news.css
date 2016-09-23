@@ -1,3 +1,6 @@
-.comment {
-    margin: 20px 0px 20px 20px;
+/* sidebar */
+.bs-docs-sidebar {
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

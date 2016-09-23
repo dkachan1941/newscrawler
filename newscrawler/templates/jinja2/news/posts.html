@@ -3,15 +3,13 @@
 {% block content %}
 
 {% for post in items %}
-  <h6>Добавлено: {{post.date}}</h6>
-  <h1><a href="{{ url('post_detail', args=[post.pk]) }}">{{ post.title }}</a></h1>
-  <p>{{ post.text }}</p>
-  <a href="{{ url('post_detail', args=[post.pk]) }}">Комментариев: {{ post.comments.all()|length }}</a>
+
+  <h3>{{post.title}}</h3>
+  <h6>{{post.text}}</h6>
+  <h6>{{post.date}}</h6>
+  <h6>{{post.category}}</h6>
   <hr>
 
 {% endfor %}
 
 {% endblock %}
-
-
-

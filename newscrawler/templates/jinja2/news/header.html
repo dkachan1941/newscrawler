@@ -1,35 +1,59 @@
 <!DOCTYPE <!DOCTYPE html>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <link href="{{ static("/bootstrap/css/bootstrap.css")}}" rel="stylesheet">
 <link href="{{ static("/news/css/news.css")}}" rel="stylesheet">
 <script src="{{ static("/bootstrap/js/bootstrap.js")}}"></script>
 
+<script type='text/javascript'>
+    $(document).ready(function(){
+    	$(function() {
+		  $("#news_categories").autocomplete({
+		    source: "get_news_categories/",
+		    minLength: 1,
+		  });
+		});
+    });
+</script>
+
 <html lang="ru">
 <head>
-	<title>События армрестлинга</title>
+	<title>Новости</title>
 	<meta charset="utf-8" />
 </head>
 <body class="body" style="background-color:#f6f6f6">
 	<nav class="navbar navbar-default info">
-	  <div class="container-fluid">
 
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Новости</a>
+			</div>
+			<ul class="nav navbar-nav">
+			</ul>
+		</div>
 
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">Новости</a>
-	    </div>
-	    <ul class="nav navbar-nav">
-	      <li class="active"><a href="/news/">Новости</a></li>
-	      <li><a href="/admin/" target="_parent">Что-то еще</a></li>
-	      <li><a href="/admin/" target="_parent">И еще</a></li>
-			<!--       <li><a href="#">Page 2</a></li>
-	      <li><a href="#">Page 3</a></li> -->
-	    </ul>
-	  </div>
 	</nav>
+
+	<div class="sidenav">
+
+		<h6>Фильтр</h6>
+		<form method="POST" class="post-form">{{ csrf_input }}
+			<div class="ui-widget">
+			  <label for="news_categories">Категория: </label>
+			  <input id="news_categories">
+			</div>
+		    <button type="submit" class="save btn btn-default">Показать</button>
+		    <button class="save btn btn-default">"Экспорт в PDF"</button>
+		</form>
+
+	</div>
+
 	<div class="container">
 		{% block content %}
 		{% endblock %}
 	</div>
+
 </body>
 </html>
