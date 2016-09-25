@@ -1,9 +1,0 @@
-{% extends "news/header.html" %}
-
-{% block content %}
-    <h1>Новый комментарий</h1>
-    <form method="POST" class="post-form">{{ csrf_input }}
-    	{{ form.as_p()|safe }}
-        <button type="submit" class="save btn btn-default">Отправить</button>
-    </form>
-{% endblock %}

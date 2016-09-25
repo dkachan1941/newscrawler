@@ -5,7 +5,7 @@ from django.utils import timezone
 from django.db import models
 
 class News(models.Model):
-	title = models.CharField(max_length=250)
+	title = models.CharField(max_length=250, unique=True)
 	text = models.TextField()
 	date = models.DateTimeField()
 	category = models.CharField(max_length=250)

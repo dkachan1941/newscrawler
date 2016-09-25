@@ -1,22 +1,13 @@
 <!DOCTYPE <!DOCTYPE html>
 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link href="{{ static("/jquery/jquery/jquery-ui.min.css")}}" rel="stylesheet">
+<script src="{{ static("/jquery/jquery/external/jquery/jquery.js")}}"></script>
+<script src="{{ static("/jquery/jquery/jquery-ui.min.js")}}"></script>
 
 <link href="{{ static("/bootstrap/css/bootstrap.css")}}" rel="stylesheet">
-<link href="{{ static("/news/css/news.css")}}" rel="stylesheet">
 <script src="{{ static("/bootstrap/js/bootstrap.js")}}"></script>
-
-<script type='text/javascript'>
-    $(document).ready(function(){
-    	$(function() {
-		  $("#news_categories").autocomplete({
-		    source: "get_news_categories/",
-		    minLength: 1,
-		  });
-		});
-    });
-</script>
+<script src="{{ static("/scripts/main.js")}}"></script>
+<link href="{{ static("/css/news.css")}}" rel="stylesheet">
 
 <html lang="ru">
 <head>
@@ -24,35 +15,78 @@
 	<meta charset="utf-8" />
 </head>
 <body class="body" style="background-color:#f6f6f6">
-	<nav class="navbar navbar-default info">
 
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Новости</a>
+	<div class="container-fluid">
+
+		<nav class="navbar navbar-default" style="background-color:#337ab7">
+			<div class="navbar-header " >
+				<a class="navbar-brand" style="color:black">Новости</a>
 			</div>
-			<ul class="nav navbar-nav">
-			</ul>
+		</nav>
+
+		<div class="row">
+
+			<div class="col-lg-2">
+
+				<div class="panel-group">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							Фильтр
+						</div>
+						<div class="panel-body">
+							<label class="label label-primary" for="news_categories">Категория: </label>
+							<br>
+							<input class='form-control' id="news_categories">
+							<br>
+							<label class="label label-info" for="news_from_input">От: </label>
+							<br>
+							<input type="text" name="date" class='form-control' type="text" id="news_from_input">
+							<br>
+							<label class="label label-info" for="news_to_input">До: </label>
+							<br>
+							<input class='form-control' type="text" id="news_to_input">
+							<br>
+							<button  id="filter_news_btn" class='form-control'>Отфильтровать</button>
+						</div>
+					</div>
+
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							Отправка на email
+						</div>
+						<div class="panel-body">
+							<label class="label label-warning" for="news_email">email: </label>
+							<br>
+							<input class='form-control' id="news_email">
+							<br>
+							<button id="send_to_email_btn" class='form-control'>Отправить</button>
+						</div>
+					</div>
+
+				</div>				
+
+			</div>
+
+			<div class="col-lg-8">
+				<div class="container">
+
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							Новости lenta.ru
+						</div>
+						<div class="panel-body" id="news_container">
+
+							{% block content %}
+							{% endblock %}
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
 		</div>
 
-	</nav>
-
-	<div class="sidenav">
-
-		<h6>Фильтр</h6>
-		<form method="POST" class="post-form">{{ csrf_input }}
-			<div class="ui-widget">
-			  <label for="news_categories">Категория: </label>
-			  <input id="news_categories">
-			</div>
-		    <button type="submit" class="save btn btn-default">Показать</button>
-		    <button class="save btn btn-default">"Экспорт в PDF"</button>
-		</form>
-
-	</div>
-
-	<div class="container">
-		{% block content %}
-		{% endblock %}
 	</div>
 
 </body>

@@ -132,3 +132,23 @@ os.path.join(BASE_DIR, 'static/'),
 STATIC_URL = '/static/'
 
 LENTA_RSS_URL = 'https://lenta.ru/rss/news'
+
+# CELERY STUFF
+BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Africa/Nairobi'
+CELERY_TIMEZONE = 'UTC'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.bk.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'dkachan@bk.ru'
+EMAIL_HOST_PASSWORD = 'Stellarjam1708'
+EMAIL_TEXT = 'Open the pdf attachement to see the latest news'
+EMAIL_TITLE = 'News'
+
+FONT_PATH_ARIAL = BASE_DIR + '/static/fonts/arial.ttf'
