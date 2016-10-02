@@ -146,8 +146,8 @@ CELERY_TIMEZONE = 'UTC'
 
 EMAIL_HOST = 'smtp.bk.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'dkachan@bk.ru'
-EMAIL_HOST_PASSWORD = 'Stellarjam1708'
+EMAIL_HOST_USER = 'email'
+EMAIL_HOST_PASSWORD = 'password'
 EMAIL_TEXT = 'Open the pdf attachement to see the latest news'
 EMAIL_TITLE = 'News'
 
